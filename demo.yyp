@@ -31,12 +31,11 @@
   "isEcma": false,
   "LibraryEmitters": [],
   "MetaData": {
-    "IDEVersion": "2023.11.0.121",
+    "IDEVersion": "2023.11.1.129",
   },
   "resources": [
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},},
     {"id":{"name":"normalize_vector","path":"scripts/normalize_vector/normalize_vector.yy",},},
-    {"id":{"name":"move_player","path":"scripts/move_player/move_player.yy",},},
     {"id":{"name":"spr_player","path":"sprites/spr_player/spr_player.yy",},},
     {"id":{"name":"rm_level_one","path":"rooms/rm_level_one/rm_level_one.yy",},},
   ],
