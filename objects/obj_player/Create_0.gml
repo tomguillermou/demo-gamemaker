@@ -1,6 +1,5 @@
 walk_speed = 4;
 
-//Commentaires
 dash_speed = 12;
 dash_duration_in_steps = 12;
 dash_cooldown_in_steps = 30;
