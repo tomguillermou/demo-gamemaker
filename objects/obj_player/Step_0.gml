@@ -8,7 +8,6 @@ if (key_dash && !is_dashing && dash_cooldown_timer = 0) {
 	is_dashing = true;
 	dash_duration_timer = dash_duration_in_steps;
 	dash_cooldown_timer = dash_duration_in_steps + dash_cooldown_in_steps;
-	
 	dash_direction = normalize_vector((key_right - key_left), (key_down - key_up));
 }
 
