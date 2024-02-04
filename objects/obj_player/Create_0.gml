@@ -1,3 +1,5 @@
+//walk speed
+
 walk_speed = 4;
 
 dash_speed = 12;
