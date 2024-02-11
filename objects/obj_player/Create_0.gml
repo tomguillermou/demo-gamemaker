@@ -1,14 +1,16 @@
-//walk speed
+WALK_SPEED = 4;
 
-walk_speed = 4;
+DASH_SPEED = 12;
+DASH_DURATION_IN_STEPS = 12;
+DASH_COOLDOWN_IN_STEPS = 30;
 
-dash_speed = 12;
-dash_duration_in_steps = 12;
-dash_cooldown_in_steps = 30;
+NO_MOVE_DIRECTION = { x: 0, y: 0 };
 
 // Runtime variables
+move_speed = WALK_SPEED;
+move_direction = NO_MOVE_DIRECTION;
 
 is_dashing = false;
 dash_duration_timer = 0;
 dash_cooldown_timer = 0;
-dash_direction = { x: 0, y: 0 };
+dash_direction = NO_MOVE_DIRECTION;
