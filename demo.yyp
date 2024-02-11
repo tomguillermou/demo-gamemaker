@@ -35,7 +35,11 @@
   },
   "resources": [
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},},
+    {"id":{"name":"get_player_input_direction","path":"scripts/get_player_input_direction/get_player_input_direction.yy",},},
+    {"id":{"name":"spr_ennemy","path":"sprites/spr_ennemy/spr_ennemy.yy",},},
     {"id":{"name":"normalize_vector","path":"scripts/normalize_vector/normalize_vector.yy",},},
+    {"id":{"name":"obj_wall","path":"objects/obj_wall/obj_wall.yy",},},
+    {"id":{"name":"obj_ennemy","path":"objects/obj_ennemy/obj_ennemy.yy",},},
     {"id":{"name":"spr_player","path":"sprites/spr_player/spr_player.yy",},},
     {"id":{"name":"rm_level_one","path":"rooms/rm_level_one/rm_level_one.yy",},},
   ],
