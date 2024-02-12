@@ -9,7 +9,10 @@
     "name": "Objets",
     "path": "folders/Objets.yy",
   },
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "obj_wall_parent",
+    "path": "objects/obj_wall_parent/obj_wall_parent.yy",
+  },
   "persistent": false,
   "physicsAngularDamping": 0.1,
   "physicsDensity": 0.5,
@@ -25,7 +28,10 @@
   "physicsStartAwake": true,
   "properties": [],
   "solid": false,
-  "spriteId": null,
+  "spriteId": {
+    "name": "spr_wall",
+    "path": "sprites/spr_wall/spr_wall.yy",
+  },
   "spriteMaskId": null,
   "visible": true,
 }

@@ -1,4 +1,3 @@
-// Check if the left mouse button is pressed
 var key_dash = mouse_check_button_pressed(mb_left);
 
 // Check if the player can dash. They can if the dash key is pressed, they are not currently dashing, and the dash cooldown timer is at 0
@@ -38,8 +37,7 @@ if (is_dashing) {
 var move_x = move_direction.x * move_speed;
 var move_y = move_direction.y * move_speed;
 
-// Check for collisions with walls and move the player
-move_and_collide(move_x, move_y, obj_wall);
+move_and_collide(move_x, move_y, obj_wall_parent);
 
 // If the dash cooldown timer is greater than 0
 if (dash_cooldown_timer > 0) {
