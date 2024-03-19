@@ -1,5 +1,5 @@
 {
-  "FolderOrderSettings": [
+  "FolderOrderSettings":[
     {"name":"Chemins d'accès","order":4,"path":"folders/Chemins d'accès.yy",},
     {"name":"Chronologies","order":8,"path":"folders/Chronologies.yy",},
     {"name":"Courbes d’animation","order":12,"path":"folders/Courbes d’animation.yy",},
@@ -16,13 +16,16 @@
     {"name":"Sprites","order":1,"path":"folders/Sprites.yy",},
     {"name":"Tile sets","order":2,"path":"folders/Tile sets.yy",},
   ],
-  "ResourceOrderSettings": [
+  "ResourceOrderSettings":[
+    {"name":"obj_camera","order":3,"path":"objects/obj_camera/obj_camera.yy",},
+    {"name":"obj_ennemy","order":2,"path":"objects/obj_ennemy/obj_ennemy.yy",},
+    {"name":"obj_wall","order":1,"path":"objects/obj_wall/obj_wall.yy",},
+    {"name":"obj_checkpoint","order":5,"path":"objects/obj_checkpoint/obj_checkpoint.yy",},
+    {"name":"rm_level_gaut","order":3,"path":"rooms/rm_level_gaut/rm_level_gaut.yy",},
     {"name":"obj_hud","order":4,"path":"objects/obj_hud/obj_hud.yy",},
     {"name":"get_player_input_direction","order":1,"path":"scripts/get_player_input_direction/get_player_input_direction.yy",},
+    {"name":"spr_checkpoint","order":2,"path":"sprites/spr_checkpoint/spr_checkpoint.yy",},
     {"name":"rm_mus","order":1,"path":"rooms/rm_mus/rm_mus.yy",},
     {"name":"spr_ennemy","order":1,"path":"sprites/spr_ennemy/spr_ennemy.yy",},
-    {"name":"obj_wall","order":1,"path":"objects/obj_wall/obj_wall.yy",},
-    {"name":"obj_ennemy","order":2,"path":"objects/obj_ennemy/obj_ennemy.yy",},
-    {"name":"obj_camera","order":3,"path":"objects/obj_camera/obj_camera.yy",},
   ],
 }
