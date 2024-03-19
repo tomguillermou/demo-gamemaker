@@ -1,18 +1,17 @@
 {
   "$GMObject":"",
-  "%Name":"obj_ennemy",
-  "eventList":[],
+  "%Name":"obj_checkpoint",
+  "eventList":[
+    {"$GMEvent":"","%Name":"","collisionObjectId":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
-  "name":"obj_ennemy",
+  "name":"obj_checkpoint",
   "overriddenProperties":[],
   "parent":{
     "name":"Objets",
     "path":"folders/Objets.yy",
   },
-  "parentObjectId":{
-    "name":"obj_wall",
-    "path":"objects/obj_wall/obj_wall.yy",
-  },
+  "parentObjectId":null,
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -31,8 +30,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_ennemy",
-    "path":"sprites/spr_ennemy/spr_ennemy.yy",
+    "name":"spr_checkpoint",
+    "path":"sprites/spr_checkpoint/spr_checkpoint.yy",
   },
   "spriteMaskId":null,
   "visible":true,

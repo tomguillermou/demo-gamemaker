@@ -1,5 +1,11 @@
 // Check if the left mouse button is pressed
 var key_dash = mouse_check_button_pressed(mb_left);
+var restart = keyboard_check(vk_f10);
+
+if (restart){
+	//file_delete("checkpoint.ini");
+	room_restart();
+}
 
 // Check if the player can dash. They can if the dash key is pressed, they are not currently dashing, and the dash cooldown timer is at 0
 var can_dash = key_dash && !is_dashing && dash_cooldown_timer = 0;
