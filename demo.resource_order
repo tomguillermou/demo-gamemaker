@@ -17,7 +17,9 @@
     {"name":"Tile sets","order":2,"path":"folders/Tile sets.yy",},
   ],
   "ResourceOrderSettings": [
+    {"name":"obj_hud","order":4,"path":"objects/obj_hud/obj_hud.yy",},
     {"name":"get_player_input_direction","order":1,"path":"scripts/get_player_input_direction/get_player_input_direction.yy",},
+    {"name":"rm_mus","order":1,"path":"rooms/rm_mus/rm_mus.yy",},
     {"name":"spr_ennemy","order":1,"path":"sprites/spr_ennemy/spr_ennemy.yy",},
     {"name":"obj_wall","order":1,"path":"objects/obj_wall/obj_wall.yy",},
     {"name":"obj_ennemy","order":2,"path":"objects/obj_ennemy/obj_ennemy.yy",},
