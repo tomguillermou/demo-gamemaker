@@ -24,54 +24,96 @@
 
 //var _can_activate = !is_active && trap_cooldown_timer = 0;
 
-var _activation_attente = function()
-{
-	obj_piege.sprite_index = spr_piege_pre;
+
+
+
+//// TODO
+//// indenter les fonctions les unes dans les autres
+////
+//var _activation_attente = function()
+//{
+//	obj_piege.sprite_index = spr_piege_pre;	
+//}
+
+//var _activation_duree = function()
+//{
+//	obj_piege.sprite_index = spr_piege_ac;
+//	//show_message("Your message here");	
+//}
+
+//var _desactivation_duree = function()
+//{
+//	obj_piege.sprite_index = spr_piege_inac;
+//	is_active = false;
+//	can_activate = true;
+//}
+
+//if (can_activate == true && is_active == false) {
+//	//obj_piege.sprite_index = spr_piege_inac;
+//	// Set the trap flag to true 
+//	is_active = true;	
+//	// Set the trap duration timer to the defined trap duration
+//	trap_duration_timer = TRAP_ACCTIVATION_DURATION_MS;
+//	// Set the dash cooldown timer to the sum of the dash duration and the dash cooldown
+//	trap_cooldown_timer = TRAP_ACCTIVATION_DURATION_MS + TRAP_ACCTIVATION_TIME_MS;
+	
+//	trap_activation_timer = TRAP_ACCTIVATION_TIME_MS;
+//}
+
+//if ((is_active == true)) //&& (can_activate == true))
+//{	
+//	can_activate = false;
+//	var _test_time = time_source_create(time_source_game,trap_activation_timer,time_source_units_frames,_activation_attente);
+//	time_source_start(_test_time);    
+//	trap_activation_timer = 0
+//	var _test_time2 = time_source_create(time_source_game,trap_duration_timer,time_source_units_seconds,_activation_duree);
+//	time_source_start(_test_time2);
+	
+//	var _test_time3 = time_source_create(time_source_game,trap_cooldown_timer,time_source_units_seconds,_desactivation_duree);
+//	time_source_start(_test_time3);
+	
+//}
+//else{
+//	is_active = false;
+//	obj_piege.sprite_index = spr_piege_inac;
+//}
+
+/// Create Event
+// Initialize variables
+/// Step Event
+// Update transition timer using delta time
+transition_timer = transition_timer - (delta_time / 1000);
+
+// Limit transition timer to prevent negative values
+if (transition_timer < 0) {
+    transition_timer = 0;
 }
 
-var _activation_duree = function()
-{
-	obj_piege.sprite_index = spr_piege_ac;
-	
+/// Collision Event with Player
+if (state == 0 && transition_timer <= 0) {
+    // Change to warning state after 1 second delay
+    transition_timer = transition_delay; // Start timer for next state transition
+    state = 1;
+} else if (state == 1 && transition_timer <= 0) {
+    // Change to danger state after 1 second delay
+    transition_timer = transition_delay; // Start timer for next state transition
+    state = 2;
+    // Add code here for any additional actions in the danger state
+} else if (state == 2 && transition_timer <= 0) {
+    // Change to danger state after 1 second delay
+    transition_timer = transition_delay; // Start timer for next state transition
+    state = 0;
+    // Add code here for any additional actions in the danger state
 }
-
-var _desactivation_duree = function()
-{
-	obj_piege.sprite_index = spr_piege_inac;
-	is_active = false;
-	can_activate = true;
+// Update sprite based on state
+switch (state) {
+    case 0:
+        sprite_index = sprite_inactive;
+        break;
+    case 1:
+        sprite_index = sprite_warning;
+        break;
+    case 2:
+        sprite_index = sprite_danger;
+        break;
 }
-if can_activate == true {
-	//obj_piege.sprite_index = spr_piege_inac;
-	// Set the trap flag to true 
-	is_active = true;
-	// Set the trap duration timer to the defined trap duration
-	trap_duration_timer = TRAP_ACCTIVATION_DURATION_MS;
-	// Set the dash cooldown timer to the sum of the dash duration and the dash cooldown
-	trap_cooldown_timer = TRAP_ACCTIVATION_DURATION_MS + TRAP_ACCTIVATION_TIME_MS;
-	
-	trap_activation_timer = TRAP_ACCTIVATION_TIME_MS;
-}
-
-if (is_active) {
-	
-	var _test_time = time_source_create(time_source_game,trap_activation_timer,time_source_units_frames,_activation_attente);
-	time_source_start(_test_time);
-
-	trap_activation_timer = 0
-
-	var _test_time2 = time_source_create(time_source_game,trap_duration_timer,time_source_units_seconds,_activation_duree);
-	time_source_start(_test_time2);
-	
-	var _test_time3 = time_source_create(time_source_game,trap_cooldown_timer,time_source_units_seconds,_desactivation_duree);
-	time_source_start(_test_time3);
-	
-}
-else{
-	is_active = false;
-	obj_piege.sprite_index = spr_piege_inac;
-}
-
-	
-/// @description Insert description here
-// You can write your code in this editor
