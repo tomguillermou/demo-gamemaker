@@ -82,38 +82,10 @@
 // Initialize variables
 /// Step Event
 // Update transition timer using delta time
-transition_timer = transition_timer - (delta_time / 1000);
-
-// Limit transition timer to prevent negative values
-if (transition_timer < 0) {
-    transition_timer = 0;
-}
 
 /// Collision Event with Player
 if (state == 0 && transition_timer <= 0) {
     // Change to warning state after 1 second delay
     transition_timer = transition_delay; // Start timer for next state transition
     state = 1;
-} else if (state == 1 && transition_timer <= 0) {
-    // Change to danger state after 1 second delay
-    transition_timer = transition_delay; // Start timer for next state transition
-    state = 2;
-    // Add code here for any additional actions in the danger state
-} else if (state == 2 && transition_timer <= 0) {
-    // Change to danger state after 1 second delay
-    transition_timer = transition_delay; // Start timer for next state transition
-    state = 0;
-    // Add code here for any additional actions in the danger state
-}
-// Update sprite based on state
-switch (state) {
-    case 0:
-        sprite_index = sprite_inactive;
-        break;
-    case 1:
-        sprite_index = sprite_warning;
-        break;
-    case 2:
-        sprite_index = sprite_danger;
-        break;
 }
