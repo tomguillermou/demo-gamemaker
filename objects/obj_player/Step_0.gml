@@ -3,8 +3,23 @@ var key_dash = mouse_check_button_pressed(mb_left);
 var restart = keyboard_check(vk_f10);
 
 if (restart){
-    //file_delete("checkpoint.ini");
-    room_restart();
+	//file_delete("checkpoint.ini");
+	room_restart();
+}
+
+// Check if the player can dash. They can if the dash key is pressed, they are not currently dashing, and the dash cooldown timer is at 0
+var can_dash = key_dash && !is_dashing && dash_cooldown_timer = 0;
+
+// If the player can dash, start the dash
+if (can_dash) {
+	// Set the dashing flag to true 
+	is_dashing = true;
+	// Set the dash duration timer to the defined dash duration
+	dash_duration_timer = DASH_DURATION_IN_STEPS;
+	// Set the dash cooldown timer to the sum of the dash duration and the dash cooldown
+	dash_cooldown_timer = DASH_DURATION_IN_STEPS + DASH_COOLDOWN_IN_STEPS;
+	// Get the direction of the player's input for the dash direction
+	dash_direction = get_player_input_direction();
 }
 
 // Handle dashing
@@ -26,14 +41,25 @@ if (is_dashing) {
     move_speed = WALK_SPEED;
 }
 
-// Move the player in the move direction at the move speed
-var move_x = move_direction.x * move_speed;
-var move_y = move_direction.y * move_speed;
+// Calculate the next position
+var next_x = x + move_direction.x * move_speed;
+var next_y = y + move_direction.y * move_speed;
 
-// Check for collisions with walls and move the player
-move_and_collide(move_x, move_y, obj_wall);
+// Check for a collision
+var collision = check_collision(self, next_x, next_y);
 
-// Handle dash cooldown
+// Move the character
+move_character(move_direction, move_speed);
+
+if (collision != noone) {
+    // The instance exists, display its id
+	if (object_get_name(collision.object_index) == "obj_ennemy") {
+		player_fear += 1;
+    	show_debug_message("Collision avec l'instance : " + object_get_name(collision.object_index));
+	}
+}
+
+// If the dash cooldown timer is greater than 0
 if (dash_cooldown_timer > 0) {
     // Decrease the dash cooldown timer by 1
     dash_cooldown_timer -= 1;

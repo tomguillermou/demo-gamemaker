@@ -1,25 +1,23 @@
 /// @description Insérez la description ici
 // Vous pouvez écrire votre code dans cet éditeur
 
-// Draw GUI Event de obj_HUD
+// Coordonnées et dimensions pour la jauge de peur
+var block_width = 40;
+var block_height = 20;
+var block_spacing = 5; // Espace entre les blocs
 
-// Coordonnées où la barre de peur sera dessinée, relative à la fenêtre de jeu
-var x_pos = 10;
-var y_pos = 10;
-var bar_width = 200;
-var bar_height = 20;
+// Calculez la largeur totale de la jauge de peur
+var total_width = obj_player.max_fear * block_width + (obj_player.max_fear - 1) * block_spacing;
 
-// Calculez la largeur actuelle de la barre de vie en fonction de la santé du joueur
-var fear_percentage = obj_player.player_fear / obj_player.max_fear;
-var current_bar_width = bar_width * fear_percentage;
+// Calculez la position x pour centrer la jauge de peur
+var x_pos_fear = view_wport[0] / 2 - total_width / 2;
+var y_pos_fear = 70; // Mettez cette valeur en dessous de la jauge de cooldown
 
-// Dessinez le fond de la barre de vie
-draw_set_color(c_gray);
-draw_rectangle(x_pos, y_pos, x_pos + bar_width, y_pos + bar_height, false);
-
-// Dessinez la barre de vie actuelle
-draw_set_color(c_red);
-draw_rectangle(x_pos, y_pos, x_pos + current_bar_width, y_pos + bar_height, false);
+// Dessinez la barre de peur
+draw_set_color(c_purple); // Choisissez la couleur que vous voulez pour la barre de peur
+for (var i = 0; i < obj_player.player_fear; i++) {
+    draw_rectangle(x_pos_fear + i * (block_width + block_spacing), y_pos_fear, x_pos_fear + i * (block_width + block_spacing) + block_width, y_pos_fear + block_height, false);
+}
 
 // Réinitialisez la couleur de dessin pour les autres éléments GUI
 draw_set_color(c_white);
@@ -43,8 +41,3 @@ draw_rectangle(x_pos, y_pos, x_pos + current_gauge_width, y_pos + gauge_height, 
     
 // Réinitialisez la couleur de dessin pour les autres éléments GUI
 draw_set_color(c_white);
-
-draw_text(10, 10, string(current_gauge_width));
-draw_text(10, 40, string(cooldown_percentage));
-
-
