@@ -27,6 +27,7 @@
     {"name":"rm_level_gaut","order":3,"path":"rooms/rm_level_gaut/rm_level_gaut.yy",},
     {"name":"rm_mus","order":1,"path":"rooms/rm_mus/rm_mus.yy",},
     {"name":"check_collision","order":3,"path":"scripts/check_collision/check_collision.yy",},
+    {"name":"rm_mus","order":1,"path":"rooms/rm_mus/rm_mus.yy",},
     {"name":"get_player_input_direction","order":1,"path":"scripts/get_player_input_direction/get_player_input_direction.yy",},
     {"name":"move_towards_direction","order":2,"path":"scripts/move_towards_direction/move_towards_direction.yy",},
     {"name":"move_character","order":4,"path":"scripts/move_character/move_character.yy",},
