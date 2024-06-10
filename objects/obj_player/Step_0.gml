@@ -7,21 +7,6 @@ if (restart){
 	room_restart();
 }
 
-// Check if the player can dash. They can if the dash key is pressed, they are not currently dashing, and the dash cooldown timer is at 0
-var can_dash = key_dash && !is_dashing && dash_cooldown_timer = 0;
-
-// If the player can dash, start the dash
-if (can_dash) {
-	// Set the dashing flag to true 
-	is_dashing = true;
-	// Set the dash duration timer to the defined dash duration
-	dash_duration_timer = DASH_DURATION_IN_STEPS;
-	// Set the dash cooldown timer to the sum of the dash duration and the dash cooldown
-	dash_cooldown_timer = DASH_DURATION_IN_STEPS + DASH_COOLDOWN_IN_STEPS;
-	// Get the direction of the player's input for the dash direction
-	dash_direction = get_player_input_direction();
-}
-
 // Handle dashing
 if (is_dashing) {
     // Set the move direction to the dash direction and speed to the dash speed
@@ -55,7 +40,6 @@ if (collision != noone) {
     // The instance exists, display its id
 	if (object_get_name(collision.object_index) == "obj_ennemy") {
 		player_fear += 1;
-    	show_debug_message("Collision avec l'instance : " + object_get_name(collision.object_index));
 	}
 }
 
@@ -70,7 +54,7 @@ var isNotInsideLanternLight = !(lantern != noone && distance_to_object(lantern) 
 var isDashAvailable = !is_dashing && key_dash && dash_cooldown_timer == 0;
 
 // If the player is not dashing and the dash key is pressed, start the dash
-if (isDashAvailable && isNotInsideLanternLight ) {
+if (isDashAvailable && isNotInsideLanternLight) {
     // Set the dashing flag to true 
     is_dashing = true;
 
