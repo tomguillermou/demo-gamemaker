@@ -3,8 +3,8 @@ var key_dash = mouse_check_button_pressed(mb_left);
 var restart = keyboard_check(vk_f10);
 
 if (restart){
-    //file_delete("checkpoint.ini");
-    room_restart();
+	//file_delete("checkpoint.ini");
+	room_restart();
 }
 
 // Handle dashing
@@ -26,14 +26,24 @@ if (is_dashing) {
     move_speed = WALK_SPEED;
 }
 
-// Move the player in the move direction at the move speed
-var move_x = move_direction.x * move_speed;
-var move_y = move_direction.y * move_speed;
+// Calculate the next position
+var next_x = x + move_direction.x * move_speed;
+var next_y = y + move_direction.y * move_speed;
 
-// Check for collisions with walls and move the player
-move_and_collide(move_x, move_y, obj_wall);
+// Check for a collision
+var collision = check_collision(self, next_x, next_y);
 
-// Handle dash cooldown
+// Move the character
+move_character(move_direction, move_speed);
+
+if (collision != noone) {
+    // The instance exists, display its id
+	if (object_get_name(collision.object_index) == "obj_ennemy") {
+		player_fear += 1;
+	}
+}
+
+// If the dash cooldown timer is greater than 0
 if (dash_cooldown_timer > 0) {
     // Decrease the dash cooldown timer by 1
     dash_cooldown_timer -= 1;
@@ -44,7 +54,7 @@ var isNotInsideLanternLight = !(lantern != noone && distance_to_object(lantern) 
 var isDashAvailable = !is_dashing && key_dash && dash_cooldown_timer == 0;
 
 // If the player is not dashing and the dash key is pressed, start the dash
-if (isDashAvailable && isNotInsideLanternLight ) {
+if (isDashAvailable && isNotInsideLanternLight) {
     // Set the dashing flag to true 
     is_dashing = true;
 
